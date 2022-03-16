@@ -18,7 +18,7 @@
 
       <div>主演：{{ actors }}</div>
       <div style="display: flex">
-        <div style="align-self: center">上映日期：{{ mf.nation }}</div>
+        <div style="align-self: center">上映日期：</div>
       </div>
     </div>
     <div style="flex: 2; display: flex; align-items: center">
