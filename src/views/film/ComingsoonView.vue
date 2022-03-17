@@ -27,11 +27,13 @@ axios({
 <style lang='scss' scoped>
 ul {
   list-style: none;
+  margin-bottom: 40px;
   li {
     overflow: hidden;
     display: flex;
     justify-content: flex-start;
     margin-left: -25px;
+    border-bottom: 1px rgb(248, 245, 245) solid;
   }
 }
 </style>

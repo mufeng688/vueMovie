@@ -22,7 +22,7 @@
       </div>
     </div>
     <div style="flex: 2; display: flex; align-items: center">
-      <div style="color: #ffb232">预购</div>
+      <div class="btn">预购</div>
     </div>
   </div>
 </template>
@@ -79,5 +79,13 @@ div {
   border-left: 1px solid gray;
   margin: 5px;
   align-self: center;
+}
+.btn {
+  width: 50px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: #ffb232;
+  border: #ffb232 1px solid;
 }
 </style>
