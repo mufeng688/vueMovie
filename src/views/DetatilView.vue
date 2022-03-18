@@ -31,9 +31,28 @@
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAICAYAAADwdn+XAAAAAXNSR0IArs4c6QAAAQlJREFUKBWNkT1Lw1AUht8TIlJExKlj/4WQFNIacWyHCoLQ1cXdj59g7e7i6CA4OAhOpbdNIKn2X3Ts1NGhocdzbgmk1NJmuCHnvM+Tc+8lEyVfDBzDxdVZtTrBDk8/SSrI8EbAzBH4EAwPc/qJ4/RkG28zklVGWefoYL8BQg/gcsYYmmjU2iQx8feFZjSrjLIyBTBgdjlKn8V4TUQszfsw8LtFkYnTW/lrh5lJoBeq+TenRJkV5EEzHN2B+LEY0t6KnOkhrHtPObMi0KKOCV68iqS03JoacC6T/QLUDmveRw7re02gRT2o+QKfdq9aAE33HDSDwB/bz8Lyr0D7y6uid5t1+XLTFf8Bk+NpPwQfd0oAAAAASUVORK5CYII="
       />
     </div>
-    <div>演职人员组件</div>
-    <div>剧照组件</div>
-    <div>选座购票</div>
+    <actors-cmp>
+      <template #default>
+        <span class="photoText">演职人员</span>
+      </template>
+    </actors-cmp>
+    <detail-cmp>
+      <template #default>
+        <div class="photoCtx">
+          <span class="photoText">剧照</span>
+          <span class="alls"
+            >全部(5)
+            <img
+              style="transform: rotateZ(270deg); width: 10px"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAICAYAAADwdn+XAAAAAXNSR0IArs4c6QAAAQlJREFUKBWNkT1Lw1AUht8TIlJExKlj/4WQFNIacWyHCoLQ1cXdj59g7e7i6CA4OAhOpbdNIKn2X3Ts1NGhocdzbgmk1NJmuCHnvM+Tc+8lEyVfDBzDxdVZtTrBDk8/SSrI8EbAzBH4EAwPc/qJ4/RkG28zklVGWefoYL8BQg/gcsYYmmjU2iQx8feFZjSrjLIyBTBgdjlKn8V4TUQszfsw8LtFkYnTW/lrh5lJoBeq+TenRJkV5EEzHN2B+LEY0t6KnOkhrHtPObMi0KKOCV68iqS03JoacC6T/QLUDmveRw7re02gRT2o+QKfdq9aAE33HDSDwB/bz8Lyr0D7y6uid5t1+XLTFf8Bk+NpPwQfd0oAAAAASUVORK5CYII="
+            />
+          </span>
+        </div>
+      </template>
+    </detail-cmp>
+    <router-link to="/buy" #default="{ navigate }">
+      <div class="forseat" @click="navigate">选座购票</div>
+    </router-link>
   </div>
 </template>
 
@@ -42,6 +61,8 @@ import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { onBeforeUnmount, reactive, computed, ref } from "vue";
 import axios from "axios";
+import DetailCmp from "../components/DetatilCmp.vue";
+import ActorsCmp from "../components/ActorsCmp.vue";
 const route = useRoute();
 const store = useStore();
 //隐藏主导航栏
@@ -145,6 +166,7 @@ const goBack = () => {
   color: #797d82;
   margin-top: 12px;
   margin-left: 12px;
+  margin-right: 12px;
   box-sizing: border-box;
   text-align: left;
   overflow: v-bind(ow);
@@ -171,5 +193,35 @@ const goBack = () => {
   flex-direction: column;
   align-items: flex-start;
   margin-left: 12px;
+}
+.forseat {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 49px;
+  width: 100%;
+  text-align: center;
+  background-color: #ff5f16;
+  color: #fff;
+  font-size: 16px;
+  line-height: 49px;
+}
+.photoText {
+  font-size: 16px;
+  text-align: left;
+  color: #191a1b;
+  align-self: center;
+  margin: 13px;
+  display: block;
+}
+.alls {
+  font-size: 13px;
+  color: #797d82;
+  align-self: center;
+}
+.photoCtx {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 12px;
 }
 </style>
